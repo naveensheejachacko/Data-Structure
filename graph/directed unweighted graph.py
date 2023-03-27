@@ -1,0 +1,45 @@
+def add_node(v):
+    if v in graph:
+        print(v,"is present")
+    else:
+        graph[v]=[]
+def add_edge(v1,v2):
+    if v1 not in graph:
+        print(v1,"not present in graph")
+    elif v2 not in graph:
+        print(v2,"is not present in graph")
+    else:
+        graph[v1].append(v2)
+def delete_node(v):
+    if v not in graph:
+        print(v,"is not present ")
+    else:
+        graph.pop(v)
+        for i in graph:
+            list1=graph[i]
+            if v in list1:
+                list1.remove(v)
+def delete_edge(v1,v2):
+    if v1 not in graph:
+        print(v1,"is not present")
+    if v2 not in graph:
+        print(v2,"is not present")
+    else:
+        if v2 in graph[v1]:
+            graph[v1].remove(v2)
+graph={}
+add_node("A")
+add_node("B")
+add_node("C")
+add_node("D")
+add_node("E")
+add_node("A")
+add_edge('A','B')
+add_edge('A','C')
+add_edge('C','D')
+add_edge('D','E')
+print(graph)
+delete_edge("B","A")
+print(graph)
+delete_node("B")
+print(graph)
